@@ -1,0 +1,49 @@
+name: harmonious_rally
+services:
+  megasync:
+    cpu_shares: 90
+    command: []
+    container_name: MEGA
+    deploy:
+      resources:
+        limits:
+          memory: 5887M
+    environment:
+      - DATA_PERM=770
+      - GID=100
+      - UID=99
+      - UMASK=000
+    image: ich777/megasync
+    ports:
+      - target: 8080
+        published: "8080"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /mnt/user/appdata/megasync
+        target: /megasync/.local/share/data/Mega
+      - type: bind
+        source: /mnt/user
+        target: /mnt/host
+      - type: bind
+        source: /DATA
+        target: /LYCAN
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+    hostname: MEGA
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://mega.io/wp-content/themes/megapages/megalib/images/megaicon.svg
+  index: /vnc.html
+  port_map: "8080"
+  scheme: http
+  store_app_id: harmonious_rally
+  tips:
+    custom: Custom instance of MEGA SYNC on Docker. GUI of a Desktop
+  title:
+    custom: mega
