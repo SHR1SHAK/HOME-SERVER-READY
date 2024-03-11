@@ -29,3 +29,9 @@ Find the rtcwake with `which rtcwake` and change the vlaue below if different. I
 ```javascript
 00 22 * * * root /usr/sbin/rtcwake -u -m off -s 46800
 ```
+
+## Test your RTCwake is working or not with
+```javascript
+rtcwake -u -m off -s 60
+```
+With this command your pc will shutdown and wait for 1 minute to check if its worked or not.
