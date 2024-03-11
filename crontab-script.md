@@ -34,4 +34,4 @@ Find the rtcwake with `which rtcwake` and change the vlaue below if different. I
 ```javascript
 rtcwake -u -m off -s 60
 ```
-With this command your pc will shutdown and wait for 1 minute to check if its worked or not.
+With this command your server will shutdown and wait for 1 minute to check if its worked or not.
