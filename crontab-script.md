@@ -4,34 +4,34 @@ This is the working cronjob where it is configured to shutdown at `minute:00` `h
 There is a process where we can use time but its not compatable with every systems, which is why im using seconds
 
 ## use this to check if the clock is synced to the time you are in or your server will not shutdown or restart on given time.
-```javascript
+```
 timedatectl
 ```
 
 ## check timezone if necessary
 
-```javascript
+```
 timedatectl | grep Time
 ```
 
 ## change timezone if necessary
 
-```javascript
+```
 timedatectl list-timezones
 ```
 After listing the timezones find your time zone and place it in the blow command
-```javascript
+```
 timedatectl set-timezone "Asia/Kathmandu"
 ```
 
 Find the rtcwake with `which rtcwake` and change the vlaue below if different. In most case its same.
 
-```javascript
+```
 00 22 * * * root /usr/sbin/rtcwake -u -m off -s 46800
 ```
 
 ## Test your RTCwake is working or not with
-```javascript
+```
 rtcwake -u -m off -s 60
 ```
 With this command your server will shutdown and wait for 1 minute to check if its worked or not.
